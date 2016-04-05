@@ -5,11 +5,10 @@
 // Inclusão das bibliotecas
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 // Protótipos das funções
 void menu(int *opcaoMenu);
-int grau(int vertice);
+void grau(int vertice);
 void novo_grafo();
 
 // Variáveis globais
@@ -105,9 +104,9 @@ void novo_grafo()
 /**
  * Função que retorna o grau de um determinado vértice.
  *
- * @return integer
+ * @return void
  */
-int grau(int vertice)
+void grau(int vertice)
 {
     int grau = 0;
     //int matrix[4][4] = {{0,1,0,1},{1,0,1,1},{0,1,0,0},{1,1,0,0}}; // não direcionado
@@ -132,6 +131,4 @@ int grau(int vertice)
     }
 
     printf("Grau do vértice: %i", grau);
-
-    return grau;
 }
