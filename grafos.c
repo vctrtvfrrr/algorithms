@@ -18,6 +18,7 @@ int grau(int vertice);
 int main()
 {
     int opcaoMenu;
+	int vertice;
 
     do {
         // Invoca o menu principal
@@ -28,19 +29,19 @@ int main()
 
         switch (opcaoMenu) {
             case 1:
-                grau(2);
                 break;
 
             case 2:
-                grau(2);
+    			printf("\nInforme o número do vértice: ");
+    			scanf("%i", &vertice);
+
+                grau(vertice);
                 break;
 
             case 3:
-                grau(2);
                 break;
 
             case 4:
-                grau(2);
                 break;
         }
     } while (opcaoMenu != 0);
@@ -78,15 +79,25 @@ void menu(int *opcaoMenu)
 int grau(int vertice)
 {
     int grau = 0;
-    int matrix[3][3] = {{0,1,0},{1,1,1},{1,1,0}};
+    //int matrix[4][4] = {{0,1,0,1},{1,0,1,1},{0,1,0,0},{1,1,0,0}}; // não direcionado
+    int matrix[4][4] = {{0,1,0,0},{0,0,0,0},{0,1,0,1},{0,1,0,0}}; // direcionado
 
     // Ajusta o número do vértice para corresponder à matriz
     vertice--;
 
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 4; ++i) {
         if (matrix[vertice][i] != 0) {
             grau++;
         }
+    }
+
+    // Se o grafo or direcionado...
+    if (1) {
+	    for (int i = 0; i < 4; ++i) {
+	        if (matrix[i][vertice] != 0) {
+	            grau++;
+	        }
+	    }
     }
 
     printf("Grau do vértice: %i", grau);
