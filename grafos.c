@@ -5,10 +5,16 @@
 // Inclusão das bibliotecas
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Protótipos das funções
 void menu(int *opcaoMenu);
 int grau(int vertice);
+void novo_grafo();
+
+// Variáveis globais
+int  qtdVertices;
+char direcionado, peso;
 
 /**
  * Função principal
@@ -28,7 +34,7 @@ int main()
 
         switch (opcaoMenu) {
             case 1:
-                grau(2);
+                novo_grafo();
                 break;
 
             case 2:
@@ -68,6 +74,30 @@ void menu(int *opcaoMenu)
     printf("\nEscolha uma das opções acima: ");
 
     scanf("%i", &(*opcaoMenu));
+}
+
+/**
+ * Função que preenche a matriz com o grafo informado.
+ *
+ * @return void
+ */
+void novo_grafo()
+{
+    system("clear");
+
+    printf("Informar um novo Grafo\n");
+    printf("______________________\n");
+    printf("Qual a quantidade de vértices do grafo?");
+    scanf("%d", &qtdVertices);
+    printf("O grafo a ser informado é direcionado? (S ou N)");
+    do {
+        scanf("%c", &direcionado);
+    } while(strcmp(direcionado, "S") != 0 || strcmp(direcionado, "s") != 0 || strcmp(direcionado, "N") != 0 || strcmp(direcionado, "n") != 0);
+
+    printf("As arestas do grafo possuem peso? (S ou N)");
+    do {
+        scanf("%c", &peso);
+    } while(strcmp(peso, "S") != 0 || strcmp(peso, "s") != 0 || strcmp(peso, "N") != 0 || strcmp(peso, "n") != 0);
 }
 
 /**
